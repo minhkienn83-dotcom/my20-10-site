@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <!--
+    index.html — annotated
+    - Edit the visible message in `js/script.js` (variable `message`) or
+      place a text file in `assets/message.txt` and load it using the page controls.
+    - Add images to `assets/images/` and list them in `assets/images/images.json` to auto-load the gallery.
+    - CSS lives in `css/styles.css`, JS in `js/script.js`.
+  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chúc mừng 20-10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Anime.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head> <!--Đánh dấu cuối phần header-->
+<body> <!--Đánh dấu đầu phần thân-->
+  <div class="container">
+    <header>
+      <h1 id="title">Thư chúc mừng 20-10, bạn Nguyễn Ngọc Nhi yêu dấu ❤️</h1>
+      <p class="subtitle">Cảm ơn em đã luôn ở bên anh.</p>
+      <p class="subtitle">Mong em sau này sẽ thành công và hạnh phúc với những gì mà mình có được</p>
+    </header>
+    <main>
+      <div class="scene">
+        <canvas id="petalCanvas"></canvas>
+        <div id="hearts"></div>
+        <div class="card" id="card">
+          <p id="typed"></p>
+          <div class="controls">
+            <button id="playMusic">Bật nhạc</button>
+            <button id="toggleHearts">Tắt/ Bật trái tim</button>
+            <!-- Message file controls -->
+            <div class="file-controls">
+              <input id="fileInput" class="hidden-input" type="file" accept=".txt" aria-label="Chọn file văn bản chứa lời chúc">
+            </div>
+          </div>
+        </div>
+        <!-- Image gallery -->
+        <div class="gallery" id="gallery">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <h3 class="gallery-title">Ảnh kỷ niệm</h3>
+            <!-- Toggle between contain (show whole image) and cover (fill box, may crop) -->
+            <div>
+              <button id="toggleFit" aria-pressed="false">Cover</button>
+            </div>
+          </div>
+          <div class="gallery-grid">
+            <!-- static fallback thumb; manifest loader will replace on load -->
+            <div class="thumb contain"><img src="assets/images/MEITU_20240731_161126974.jpg" alt="heart placeholder" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <small>Được thực hiện bởi anh yêu của em hihihi</small>
+      <p>Nguyễn Minh Kiên</p>
+    </footer>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="./assets/music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="js/script.js"></script>
+</body> <!--Đánh dấu cuối phần thân-->
+</html>
