@@ -16,6 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Show files to be deployed (debug)
+        run: |
+          echo "== Listing repository root =="
+          ls -la
+          echo "\n== Check for index.html and assets folder =="
+          if [ -f index.html ]; then echo "index.html: FOUND"; else echo "index.html: MISSING"; fi
+          if [ -d assets ]; then echo "assets/: FOUND"; else echo "assets/: MISSING"; fi
+          echo "\n== Disk usage (top-level) =="
+          du -sh ./* || true
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
