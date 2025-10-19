@@ -1,0 +1,24 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE / editors
+.vscode/
+*.suo
+*.user
+*.log
+
+# node
+node_modules/
+
+# build / output
+dist/
+build/
+
+# system files
+*.tmp
+*.bak
+
+# media / large files (optional - uncomment if you want to exclude)
+# assets/music.mp3
+# assets/videos/

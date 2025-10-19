@@ -1,0 +1,185 @@
+/*
+    css/styles.css — annotated
+    - Top: basic reset and layout
+    - Sections: header, scene, card, gallery, controls
+    - Adjust colors, fonts and aspect-ratio values below to customize
+*/
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#petalCanvas{height:100%}
+body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#ffe9f0 0%,#fff 100%);color:#333;display:flex;align-items:center;justify-content:center}
+
+/**/
+.container{
+    width:100%;
+    max-width:900px;
+    padding:20px;
+}
+
+
+header
+{
+    text-align:center;
+    margin-bottom:12px
+}
+#title
+{
+    font-size:2.4rem;
+    color:#c2185b;
+    text-shadow:0 2px 6px rgba(194,24,91,0.15);
+    font-family:'Great Vibes',cursive;
+    letter-spacing:0.5px;
+    line-height:1
+}
+.subtitle
+{
+    color:#6b6b6b;
+    font-family:'Playfair Display',serif;
+    margin-top:6px
+}
+.scene
+{
+    position:relative;
+    height:60vh;
+    min-height:420px;
+    background:rgba(255,255,255,0.6);
+    border-radius:18px;
+    -shadow:0 8px 30px rgba(0,0,0,0.08);
+    overflow:hidden;
+    padding:24px}
+
+#petalCanvas
+{position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    pointer-events:none
+}
+#hearts
+{
+    position:absolute;
+    inset:0;
+    pointer-events:none
+}
+.card
+{
+    position:relative;
+    z-index:4;
+    background:linear-gradient(180deg,rgba(255,255,255,0.8),rgba(255,255,255,0.9));
+    border-radius:12px;
+    max-width:560px;
+    margin:36px auto;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+#typed
+{
+    font-size:1.25rem;
+    color:#7a163f;
+    min-height:3rem
+}
+.controls
+{
+    margin-top:14px
+}
+/* file control styles */
+.file-controls
+{
+    display:inline-block;
+    margin-left:8px
+}
+.hidden-input
+{
+    display:none
+}
+/* gallery */
+.gallery
+{
+    position:relative;
+    z-index:5;
+    max-width:760px;
+    margin:18px auto;
+    text-align:center
+}
+.gallery-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.gallery-title
+{
+    font-family:'Playfair Display',serif;
+    color:#8b2f5b;
+    margin-bottom:10px
+}
+.gallery-grid
+{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:10px
+}
+.gallery-grid img
+{
+    display: block;
+    width: 100%;
+    height: auto;          /* giữ tỉ lệ, không cắt ảnh */
+    object-fit: contain;   /* đảm bảo toàn bộ ảnh hiển thị trong khung */
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+/* thumbnail wrapper to keep consistent boxes without cropping */
+.gallery-grid .thumb{
+    position:relative;
+    width:100%;
+    aspect-ratio: 4 / 3; /* adjust if you want a different shape */
+    overflow:hidden;
+    border-radius:8px;
+    background:#faf4f6;
+    display:block;
+}
+.gallery-grid .thumb img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain; /* show whole image; change to cover to crop */
+}
+/* support toggling between contain and cover using classes on .thumb */
+.gallery-grid .thumb.cover img{ object-fit:cover; }
+.gallery-grid .thumb.contain img{ object-fit:contain; }
+button
+{
+    background:#c2185b;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    font-weight:600;
+    margin:0 6px;
+    cursor:pointer
+}
+button.secondary
+{
+    background:#f2f2f2;
+    color:#333}
+footer
+{
+    text-align:center;
+    margin-top:12px;
+    color:#9b9b9b
+}
+.heart
+{
+    position:absolute;
+    width:36px;
+    height:36px;
+    transform:translate(-50%,-50%);
+    pointer-events:none
+}
+@media (max-width:600px)
+{#title
+    {
+        font-size:1.6rem
+    } 
+    .card
+    {
+        margin:18px 12px;
+        padding:14px
+    }
+}
